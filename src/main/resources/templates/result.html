@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>CSV Upload Result</title>
+</head>
+<body>
+<h1>CSV Data</h1>
+<table border="1">
+    <thead>
+    <tr>
+        <th th:each="header : ${csvData.get(0)}" th:text="${header}"></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="row : ${csvData.subList(1, csvData.size())}">
+        <td th:each="cell : ${row}" th:text="${cell}"></td>
+    </tr>
+    </tbody>
+</table>
+<a href="/upload">Upload another file</a>
+</body>
+</html>
