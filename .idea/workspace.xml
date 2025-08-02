@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="988f3e50-8a2e-4f25-9311-e32b979d6f9d" name="Changes" comment="add propertiles file" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="develop" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RESET_MODE" value="MIXED" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "sunilpanwar"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/sunilpanwar/notification_service_with_ses.git",
+    "accountId": "6956ab39-f58f-444e-9cf1-d4f6e5def7d1"
+  }
+}]]></component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 3
+}</component>
+  <component name="ProjectId" id="2wGR9wEf6ja0kJeR08yYnSHYCD1" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.Main.executor": "Run",
+    "Application.NotificationSesApplication.executor": "Run",
+    "Application.SqsReceiver.executor": "Run",
+    "Application.org.ssp.notification.NotificationSesApplication.executor": "Run",
+    "DefaultHtmlFileTemplate": "HTML File",
+    "JAR Application.notification-ses-service-1.0-SNAPSHOT.jar.executor": "Run",
+    "Maven.notification-ses-service [clean].executor": "Run",
+    "Maven.notification-ses-service [install].executor": "Run",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "develop-v1",
+    "last_opened_file_path": "D:/Learning/java_project/notification-ses-service/src",
+    "onboarding.tips.debug.path": "D:/Learning/java_project/notification-ses-service/src/main/java/org/ssp/Main.java",
+    "settings.editor.selected.configurable": "reference.settingsdialog.IDE.editor.colors"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="org.ssp.notification.dto" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Learning\java_project\notification-ses-service\src" />
+      <recent name="D:\Learning\java_project\notification-ses-service\src\main\resources" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Learning\java_project\notification-ses-service" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="org.ssp.notification.repository" />
+      <recent name="org.ssp.notification.entity" />
+      <recent name="org.ssp.notification.job" />
+      <recent name="org.ssp.notification.dto" />
+    </key>
+  </component>
+  <component name="RunManager" selected="JAR Application.notification-ses-service-1.0-SNAPSHOT.jar">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.ssp.Main" />
+      <module name="notification-ses-service" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.ssp.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="NotificationSesApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.ssp.NotificationSesApplication" />
+      <module name="notification-ses-service" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.ssp.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <extension name="software.aws.toolkits.jetbrains.core.execution.JavaAwsConnectionExtension">
+        <option name="credential" />
+        <option name="region" />
+        <option name="useCurrentConnection" value="false" />
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SqsReceiver" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.ssp.notification.service.SqsReceiver" />
+      <module name="notification-ses-service" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.ssp.notification.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="org.ssp.notification.NotificationSesApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.ssp.notification.NotificationSesApplication" />
+      <module name="notification-ses-service" />
+      <option name="VM_PARAMETERS" value="-Dspring.config.location=D:\Learning\java_project\notification-ses-service\application1.properties" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.ssp.notification.job.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <extension name="software.aws.toolkits.jetbrains.core.execution.JavaAwsConnectionExtension">
+        <option name="credential" />
+        <option name="region" />
+        <option name="useCurrentConnection" value="false" />
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="notification-ses-service-1.0-SNAPSHOT.jar" type="JarApplication" temporary="true">
+      <extension name="software.aws.toolkits.jetbrains.core.execution.JavaAwsConnectionExtension">
+        <option name="credential" />
+        <option name="region" />
+        <option name="useCurrentConnection" value="false" />
+      </extension>
+      <option name="JAR_PATH" value="$PROJECT_DIR$/target/notification-ses-service-1.0-SNAPSHOT.jar" />
+      <option name="VM_PARAMETERS" value="-Dspring.config.location=&quot;D:\Learning\config\application1.properties&quot;" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Application.SqsReceiver" />
+      <item itemvalue="Application.Main" />
+      <item itemvalue="Application.NotificationSesApplication" />
+      <item itemvalue="Application.org.ssp.notification.NotificationSesApplication" />
+      <item itemvalue="JAR Application.notification-ses-service-1.0-SNAPSHOT.jar" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JAR Application.notification-ses-service-1.0-SNAPSHOT.jar" />
+        <item itemvalue="Application.org.ssp.notification.NotificationSesApplication" />
+        <item itemvalue="Application.NotificationSesApplication" />
+        <item itemvalue="Application.Main" />
+        <item itemvalue="Application.SqsReceiver" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="988f3e50-8a2e-4f25-9311-e32b979d6f9d" name="Changes" comment="" />
+      <created>1745665779986</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1745665779986</updated>
+    </task>
+    <task id="LOCAL-00001" summary="added SQS for amyantas">
+      <option name="closed" value="true" />
+      <created>1751522224951</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1751522224951</updated>
+    </task>
+    <task id="LOCAL-00002" summary="added SQS for amyantas">
+      <option name="closed" value="true" />
+      <created>1754145151509</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1754145151509</updated>
+    </task>
+    <task id="LOCAL-00003" summary="remove propertiles file">
+      <option name="closed" value="true" />
+      <created>1754154582316</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1754154582316</updated>
+    </task>
+    <task id="LOCAL-00004" summary="add propertiles file">
+      <option name="closed" value="true" />
+      <created>1754154884596</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1754154884596</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="added SQS for amyantas" />
+    <MESSAGE value="remove propertiles file" />
+    <MESSAGE value="add propertiles file" />
+    <option name="LAST_COMMIT_MESSAGE" value="add propertiles file" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-field">
+          <url>file://$PROJECT_DIR$/src/main/java/org/ssp/notification/dto/NotificationDto.java</url>
+          <line>19</line>
+          <properties field="recipient_email" class="org.ssp.notification.dto.NotificationDto" />
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>
