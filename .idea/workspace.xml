@@ -4,7 +4,53 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="988f3e50-8a2e-4f25-9311-e32b979d6f9d" name="Changes" comment="add propertiles file" />
+    <list default="true" id="988f3e50-8a2e-4f25-9311-e32b979d6f9d" name="Changes" comment="add propertiles file">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/aws.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Template1.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Template2.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/chatgpt.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/deepseek.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/gemini.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/ssp/notification/Constant.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/ssp/notification/NotificationSesApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/ssp/notification/config/AuditableEntity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/ssp/notification/config/AwsConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/ssp/notification/config/QueueConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/ssp/notification/controller/CsvUploadController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/ssp/notification/controller/NotificationController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/ssp/notification/controller/SendEmail.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/ssp/notification/dto/NotificationDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/ssp/notification/dto/NotificationIdDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/ssp/notification/dto/SqsMailMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/ssp/notification/dto/SqsMessageMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/ssp/notification/dto/SqsRootMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/ssp/notification/entity/Notification.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/ssp/notification/entity/Notifications.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/ssp/notification/entity/SesNotificationEventType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/ssp/notification/entity/Template.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/ssp/notification/job/JobSchedular.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/ssp/notification/job/SqsSchedular.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/ssp/notification/queue/QueueBean.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/ssp/notification/repository/NotificationRepo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/ssp/notification/repository/SesNotificationEventRepo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/ssp/notification/service/MessageReceiver.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/ssp/notification/service/NotificationServ.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/ssp/notification/service/Receiver.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/ssp/notification/service/Sender.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/ssp/notification/service/SqsReceiver.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/application1.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/result.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/upload.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/application1.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application1.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/notification-ses-service-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/notification-ses-service-1.0-SNAPSHOT.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/notification-ses-service-1.0-SNAPSHOT.jar.original" beforeDir="false" afterPath="$PROJECT_DIR$/target/notification-ses-service-1.0-SNAPSHOT.jar.original" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -28,18 +74,18 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="RESET_MODE" value="MIXED" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "sunilpanwar"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;sunilpanwar&quot;
   }
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/sunilpanwar/notification_service_with_ses.git",
-    "accountId": "6956ab39-f58f-444e-9cf1-d4f6e5def7d1"
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/sunilpanwar/notification_service_with_ses.git&quot;,
+    &quot;accountId&quot;: &quot;6956ab39-f58f-444e-9cf1-d4f6e5def7d1&quot;
   }
-}]]></component>
+}</component>
   <component name="ProblemsViewState">
     <option name="selectedTabId" value="CurrentFile" />
   </component>
@@ -64,8 +110,8 @@
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "develop-v1",
-    "last_opened_file_path": "D:/Learning/java_project/notification-ses-service/src",
+    "git-widget-placeholder": "new__develop",
+    "last_opened_file_path": "D:/Learning/java_project/notification-ses-service/src/main/resources",
     "onboarding.tips.debug.path": "D:/Learning/java_project/notification-ses-service/src/main/java/org/ssp/Main.java",
     "settings.editor.selected.configurable": "reference.settingsdialog.IDE.editor.colors"
   }
@@ -75,8 +121,8 @@
       <recent name="org.ssp.notification.dto" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\Learning\java_project\notification-ses-service\src" />
       <recent name="D:\Learning\java_project\notification-ses-service\src\main\resources" />
+      <recent name="D:\Learning\java_project\notification-ses-service\src" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\Learning\java_project\notification-ses-service" />
@@ -220,7 +266,15 @@
       <option name="project" value="LOCAL" />
       <updated>1754154884596</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="add propertiles file">
+      <option name="closed" value="true" />
+      <created>1754161016834</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1754161016834</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
