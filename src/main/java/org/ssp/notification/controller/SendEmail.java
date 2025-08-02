@@ -26,7 +26,7 @@ public class SendEmail {
 
     @Autowired
     private AwsConfig awsConfig;
-    final String usage = """
+   /* final String usage = """
 
                                 Usage:
                                     <sender> <recipient> <subject>\s
@@ -44,12 +44,10 @@ public class SendEmail {
 
     // The HTML body of the email.
     String bodyHTML = "<html>" + "<head></head>" + "<body>" + "<h1>Hello!</h1>"
-                + "<p> See the list of customers.</p>" + "</body>" + "</html>";
+                + "<p> See the list of customers.</p>" + "</body>" + "</html>";*/
 
     public  void send(NotificationDto notification) {
 
-        /*String accessKeyId = "AKIATCKAQLOUOPHTOIDF";
-        String secretAccessKey = "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";*/
         AwsBasicCredentials credentials = AwsBasicCredentials.create(awsConfig.getAccessKeyId(), awsConfig.getSecretAccessKey());
         StaticCredentialsProvider credentialsProvider = StaticCredentialsProvider.create(credentials);
 

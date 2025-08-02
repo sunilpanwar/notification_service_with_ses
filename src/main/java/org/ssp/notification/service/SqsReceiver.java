@@ -21,15 +21,16 @@ public class SqsReceiver {
                 System.out.println("inside receiveFromSqs() :" + (new Date()));
                 ReceiveMessageRequest receiveRequest = ReceiveMessageRequest.builder()
                         .queueUrl(awsConfig.getSqslUrl())
-                        .maxNumberOfMessages(10)
+                        .maxNumberOfMessages(1)
                         .waitTimeSeconds(10)
                         .build();
 
                 List<Message> messages = sqsClient.receiveMessage(receiveRequest).messages();
 
                 for (Message message : messages) {
-                    System.out.println("Received message:");
-                    System.out.println(message.body());
+                    System.out.println("Received message:------");
+                   // System.out. println( message.messageAttributes().get("Message"));
+                  //  System.out.println(message.body());
 
                     // Optionally parse JSON and extract fields
 

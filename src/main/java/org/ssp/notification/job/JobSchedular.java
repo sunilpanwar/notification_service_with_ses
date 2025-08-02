@@ -16,7 +16,7 @@ import java.util.Date;
 import java.util.List;
 
 @Configuration
-//@EnableScheduling
+@EnableScheduling
 public class JobSchedular {
 
     @Autowired
@@ -30,13 +30,13 @@ public class JobSchedular {
     @Autowired
     private JdbcTemplate jdbcTemplate;
 
-   // @Scheduled(fixedDelay = 2000, initialDelay = 1000)
+    @Scheduled(fixedDelay = 120000, initialDelay = 60000)
     public void fetchData() {
 
         try {
             System.out.println("DB Job Started  " + (new Date()));
             while (true) {
-                System.out.println("Job Started with DBQuery " + (new Date()));
+                //System.out.println("Job Started with DBQuery " + (new Date()));
                 // List<Notification> chunk = jdbcTemplate.queryForList("select id,recipient_email,sender_email,subject,body from Notification where status is null", Notification.class, chunkSize);
                 List<Notification> chunk = jdbcTemplate.query(
                         "SELECT id,email_batch_id,ses_message_id, recipient_email,sender_email,subject,status,status_details,sent_timestamp,delivery_timestamp,bounce_timestamp,complaint_timestamp,error_code,body FROM Notification WHERE status IS NULL",
