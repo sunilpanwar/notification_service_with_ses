@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>API VAPT Report</title>
+    <style>
+        body {
+          margin: 0;
+          padding: 0;
+          background-color: #f4f6f9;
+          font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .email-container {
+          max-width: 600px;
+          margin: 40px auto;
+          background-color: #ffffff;
+          border-radius: 8px;
+          overflow: hidden;
+          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        .email-header {
+          background-color: #2d3e50;
+          color: white;
+          text-align: center;
+          padding: 25px;
+        }
+
+        .email-header h1 {
+          margin: 0;
+          font-size: 22px;
+          font-weight: normal;
+        }
+
+        .email-body {
+          padding: 30px;
+          color: #333333;
+        }
+
+        .email-body p {
+          font-size: 16px;
+          line-height: 1.6;
+          margin-bottom: 20px;
+        }
+
+        .highlight {
+          color: #2d3e50;
+          font-weight: 600;
+        }
+
+        .email-footer {
+          padding: 20px 30px;
+          background-color: #f1f3f5;
+          font-size: 14px;
+          color: #666666;
+          text-align: left;
+        }
+
+        .signature {
+          margin-top: 20px;
+          font-weight: bold;
+          color: #2d3e50;
+        }
+
+        .position {
+          color: #444;
+          font-weight: normal;
+          font-size: 14px;
+        }
+    </style>
+</head>
+
+<body>
+<div class="email-container">
+    <div class="email-header">
+        <h1>API VAPT Report for Compliance</h1>
+    </div>
+
+    <div class="email-body">
+        <p>Hi <span class="highlight">{{Name}}</span>,</p>
+
+        <p>
+            API VAPT report is a must-have for customer compliance needs.
+        </p>
+
+        <p>
+            Trusted by more than <strong>5,000 customers across 95 countries</strong>,
+            our advanced <strong>Web & API Protection platform</strong> guarantees
+            <strong>zero false positives</strong> and autonomously remediates vulnerabilities.
+        </p>
+
+        <p>
+            Leading organisations in the Middle East such as
+            <strong>Al Danube</strong>, <strong>Galadari Brothers</strong>,
+            <strong>STC Bahrain</strong>, and <strong>Orient Insurance</strong>
+            rely on it every day.
+        </p>
+
+        <p>
+            How about a quick conversation tomorrow around <strong>10 AM</strong> to discuss more?
+        </p>
+
+        <p class="signature">Cheers!<br />
+            Ven Sundar <br />
+            <span class="position">Founder at Indus</span>
+        </p>
+    </div>
+
+    <div class="email-footer">
+        This message is intended for {{Name}}. If you are not the intended recipient,
+        please disregard.
+    </div>
+</div>
+</body>
+</html>
