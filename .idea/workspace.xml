@@ -80,6 +80,7 @@
       <recent name="D:\Learning\java_project\notification-ses-service\src" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Learning\java_project\notification-ses-service\src\main\resources\templates" />
       <recent name="D:\Learning\java_project\notification-ses-service" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
@@ -245,7 +246,15 @@
       <option name="project" value="LOCAL" />
       <updated>1754163620471</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="add propertiles file">
+      <option name="closed" value="true" />
+      <created>1754164068574</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1754164068574</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
