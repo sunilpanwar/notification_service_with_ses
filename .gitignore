@@ -3,8 +3,6 @@
 !.idea/modules.xml
 !.idea/vcs.xml
 !.idea/runConfigurations/
-.idea/workspace.xml
-
 target/
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
