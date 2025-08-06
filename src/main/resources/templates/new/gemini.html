@@ -1,0 +1,92 @@
+<!--
+  This is a responsive and colorful HTML template for the VAPT report text.
+  It is styled using Tailwind CSS for a modern, clean look.
+
+  Key features:
+  - Responsive design that looks great on both mobile and desktop.
+  - A card-based layout to make the information easy to read.
+  - Vibrant colors to highlight key sections.
+  - The "Inter" font is used for a professional and legible appearance.
+  - All styling is done using Tailwind CSS classes.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VAPT Report Summary</title>
+    <!--
+      Load Tailwind CSS from a CDN. This allows us to use all the utility classes
+      without a build process. The 'Inter' font is also configured here.
+    -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+          font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 flex items-center justify-center min-h-screen p-4 sm:p-6">
+
+<!-- Main container for the card -->
+<div class="bg-white rounded-3xl shadow-xl max-w-4xl w-full overflow-hidden p-8 sm:p-12 md:p-16 space-y-8">
+
+    <!-- Header section with branding and main title -->
+    <div class="text-center">
+        <!-- Replace 'IndusFace' with your company name -->
+        <h1 class="text-3xl sm:text-4xl font-bold text-gray-800">
+            <span class="text-purple-600">Hi {Name},</span> API VAPT Report
+        </h1>
+        <p class="text-lg sm:text-xl text-gray-600 mt-2">
+            A must-have for customer compliance needs.
+        </p>
+    </div>
+
+    <!-- Section for key statistics -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-center">
+        <div class="bg-blue-100 p-6 rounded-2xl shadow-md transform transition duration-300 hover:scale-105">
+            <h2 class="text-5xl font-extrabold text-blue-600">5,000+</h2>
+            <p class="mt-2 text-blue-800 text-lg font-medium">Trusted Customers</p>
+        </div>
+        <div class="bg-green-100 p-6 rounded-2xl shadow-md transform transition duration-300 hover:scale-105">
+            <h2 class="text-5xl font-extrabold text-green-600">95+</h2>
+            <p class="mt-2 text-green-800 text-lg font-medium">Countries Served</p>
+        </div>
+    </div>
+
+    <!-- Body content with detailed information -->
+    <div class="space-y-6 text-gray-700 leading-relaxed">
+        <p class="text-lg">
+            Our advanced Web & API Protection platform guarantees <span class="font-semibold text-red-600">zero false positives</span> and autonomously remediates vulnerabilities. It's the reason why we are trusted by over 5,000 customers across 95 countries.
+        </p>
+
+        <p class="text-lg font-semibold text-gray-800">
+            Leading organizations in the Middle East rely on us every day, including:
+        </p>
+        <!-- A visually appealing list of customers -->
+        <ul class="list-none grid grid-cols-1 sm:grid-cols-2 gap-4 text-center">
+            <li class="bg-gray-50 p-4 rounded-xl shadow-inner font-medium text-gray-800">Al Danube</li>
+            <li class="bg-gray-50 p-4 rounded-xl shadow-inner font-medium text-gray-800">Galadari Brothers</li>
+            <li class="bg-gray-50 p-4 rounded-xl shadow-inner font-medium text-gray-800">STC Bahrain</li>
+            <li class="bg-gray-50 p-4 rounded-xl shadow-inner font-medium text-gray-800">Orient Insurance</li>
+        </ul>
+
+        <!-- Call to action section -->
+        <div class="bg-purple-50 p-6 rounded-2xl shadow-inner text-center">
+            <p class="text-lg text-purple-800 font-medium">
+                How about a conversation tomorrow around <span class="font-bold">10 AM</span> to discuss more?
+            </p>
+        </div>
+    </div>
+
+    <!-- Signature section -->
+    <div class="pt-8 text-center text-gray-600">
+        <p>Cheers!</p>
+        <p class="mt-2 text-lg font-semibold text-gray-800">Venkatesh Sundar</p>
+        <p class="text-md">Founder at IndusFace</p>
+    </div>
+
+</div>
+
+</body>
+</html>

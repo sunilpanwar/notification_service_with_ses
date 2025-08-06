@@ -36,17 +36,17 @@ public class Template {
     @Column(name = "message", nullable = false, columnDefinition = "TEXT")
     private String message;
 
-    @Column(name = "status", columnDefinition = "BINARY(1)")
-    private byte[] status;
+    @Column(name = "status")
+    private boolean status;
 
     @Column(name = "starttime")
     private LocalDateTime startTime;
 
     @Column(name = "endtime")
     private LocalDateTime endTime;
-
+/*
     @OneToMany(mappedBy = "template", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Notifications> notifications;
+    private List<Notifications> notifications;*/
 
     // Getters and setters
 }
