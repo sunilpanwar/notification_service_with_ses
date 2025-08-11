@@ -1,5 +1,6 @@
 package org.ssp.notification;
 
+import jakarta.annotation.PreDestroy;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -34,5 +35,13 @@ public class NotificationSesApplication  implements CommandLineRunner {
     public void run(String... args) throws Exception
     {
         messageReceiver.pollMessages();
+    }
+
+
+    @PreDestroy
+    public void shutdown() {
+        System.out.println("Shutting down the application...");
+
+
     }
 }

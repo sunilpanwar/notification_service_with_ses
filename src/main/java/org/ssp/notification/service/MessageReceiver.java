@@ -58,6 +58,7 @@ public class MessageReceiver {
             } else {
                 LOGGER.info("else No message received: " + OffsetDateTime.now());
             }
+
         }
 
     }

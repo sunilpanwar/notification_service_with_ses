@@ -32,4 +32,9 @@ public class NotificationServ {
                 notification.getStatus(), notification.getStatus_details());
         System.out.println("****** Updated SUccessfully !! " + notification);
     }
+
+
+    public void saveAllNotifications(List<Notification> notifications) {
+        notificationRepo.saveAll(notifications);
+    }
 }

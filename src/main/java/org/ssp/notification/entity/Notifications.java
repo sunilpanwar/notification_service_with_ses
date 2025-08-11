@@ -56,9 +56,9 @@ public class Notifications {
     @Column(name = "ses_message_id")
     private String sesMessageId;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+  /*  @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "template_id", nullable = false)
-    private Template template;
+    private Template template;*/
 
     // Getters and setters
 }
