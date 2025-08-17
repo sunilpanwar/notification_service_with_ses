@@ -18,9 +18,9 @@ import java.util.Date;
 import java.util.Optional;
 
 @Service
-public class MessageReceiver {
+public class SqsMessageReceiver {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(MessageReceiver.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(SqsMessageReceiver.class);
 
     private final String queueName = "email_notification_queue";
 

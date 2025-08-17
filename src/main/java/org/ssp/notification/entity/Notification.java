@@ -24,18 +24,38 @@ public class Notification extends AuditableEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String email_batch_id;
-    private String ses_message_id;
-    private String recipient_email;
-    private String sender_email;
+
+    @Column(name = "email_batch_id")
+    private String emailBatchId;
+
+    @Column(name = "ses_message_id")
+    private String sesMessageId;
+
+    @Column(name = "recipient_email")
+    private String recipientEmail;
+
+    @Column(name = "sender_email")
+    private String senderEmail;
     private String subject;
     private String status;
-    private String status_details;
-    private Timestamp sent_timestamp;
-    private Timestamp delivery_timestamp;
-    private Timestamp bounce_timestamp;
-    private Timestamp complaint_timestamp;
-    private String error_code;
+
+    @Column(name = "status_details")
+    private String statusDetails;
+
+    @Column(name = "sent_timestamp", columnDefinition = "DATETIME(6)")
+    private Timestamp sentTimestamp;
+
+    @Column(name = "delivery_timestamp", columnDefinition = "DATETIME(6)")
+    private Timestamp deliveryTimestamp;
+
+    @Column(name = "bounce_timestamp", columnDefinition = "DATETIME(6)")
+    private Timestamp bounceTimestamp;
+
+    @Column(name = "complaint_timestamp", columnDefinition = "DATETIME(6)")
+    private Timestamp complaintTimestamp;
+
+    @Column(name = "error_code")
+    private String errorCode;
 
     @Column(name = "body", nullable = false, columnDefinition = "TEXT")
     private String body;

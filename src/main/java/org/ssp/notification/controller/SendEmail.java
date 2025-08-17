@@ -5,8 +5,8 @@ import org.springframework.stereotype.Service;
 import org.ssp.notification.config.AwsConfig;
 import org.ssp.notification.dto.NotificationDto;
 import org.ssp.notification.dto.NotificationIdDto;
-import org.ssp.notification.service.NotificationServ;
-import org.ssp.notification.service.Sender;
+import org.ssp.notification.service.NotificationService;
+import org.ssp.notification.service.ActiveMqSender;
 import software.amazon.awssdk.auth.credentials.AwsBasicCredentials;
 import software.amazon.awssdk.auth.credentials.StaticCredentialsProvider;
 import software.amazon.awssdk.regions.Region;
@@ -19,10 +19,10 @@ import static org.ssp.notification.Constant.*;
 public class SendEmail {
 
     @Autowired
-    private NotificationServ notificationServ;
+    private NotificationService notificationServ;
 
     @Autowired
-    private Sender sender;
+    private ActiveMqSender sender;
 
     @Autowired
     private AwsConfig awsConfig;
@@ -58,7 +58,7 @@ public class SendEmail {
                 .build();
 
         Destination destination = Destination.builder()
-                .toAddresses(notification.getRecipient_email())
+                .toAddresses(notification.getRecipientEmail())
                 .build();
 
         Content content = Content.builder()
@@ -85,7 +85,7 @@ public class SendEmail {
         SendEmailRequest emailRequest = SendEmailRequest.builder()
                 .destination(destination)
                 .content(emailContent)
-                .fromEmailAddress(notification.getSender_email())
+                .fromEmailAddress(notification.getSenderEmail())
                 .build();
 
         NotificationIdDto messageIdDto = NotificationIdDto.builder().

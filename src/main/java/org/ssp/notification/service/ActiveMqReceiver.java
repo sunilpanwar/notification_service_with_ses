@@ -8,13 +8,13 @@ import org.ssp.notification.dto.NotificationDto;
 import org.ssp.notification.dto.NotificationIdDto;
 
 @Component
-public class Receiver {
+public class ActiveMqReceiver {
 
     @Autowired
     private SendEmail sendEmail;
 
     @Autowired
-    private NotificationServ notificationServ;
+    private NotificationService notificationServ;
 
     @JmsListener(destination = "${activemq.mailboxQ}", containerFactory = "myFactory")
     public void receiveMailboxQ(NotificationDto notification) throws InterruptedException {

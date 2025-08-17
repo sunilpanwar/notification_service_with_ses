@@ -9,7 +9,7 @@ import org.springframework.scheduling.annotation.Scheduled;
 import org.ssp.notification.entity.Notification;
 import org.ssp.notification.entity.Template;
 import org.ssp.notification.entity.UserData;
-import org.ssp.notification.service.NotificationServ;
+import org.ssp.notification.service.NotificationService;
 import org.ssp.notification.service.TemplateService;
 import org.ssp.notification.service.UserDataService;
 
@@ -23,7 +23,7 @@ public class UserTemplateProcessorJob {
     private UserDataService userDataService;
 
     @Autowired
-    private NotificationServ notificationServ;
+    private NotificationService notificationServ;
 
     @Autowired
     private TemplateService templateService;
@@ -60,8 +60,8 @@ public class UserTemplateProcessorJob {
                             .replace("{Name}", userData.getName());
 
                     return new Notification().builder().body(body)
-                            .sender_email(template.getSenderEmail())
-                            .recipient_email(userData.getEmail())
+                            .senderEmail(template.getSenderEmail())
+                            .recipientEmail(userData.getEmail())
                             .subject(template.getSubject()).build();
 
                 }).toList();

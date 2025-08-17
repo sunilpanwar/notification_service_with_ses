@@ -8,11 +8,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.ssp.notification.Constant;
-import org.ssp.notification.config.QueueConfig;
 import org.ssp.notification.dto.NotificationDto;
 import org.ssp.notification.entity.Notification;
-import org.ssp.notification.service.NotificationServ;
-import org.ssp.notification.service.Sender;
+import org.ssp.notification.service.NotificationService;
+import org.ssp.notification.service.ActiveMqSender;
 
 import java.util.Collection;
 import java.util.List;
@@ -21,10 +20,10 @@ import java.util.List;
 public class NotificationController {
 
     @Autowired
-    private NotificationServ notificationServ;
+    private NotificationService notificationServ;
 
     @Autowired
-    private Sender sender;
+    private ActiveMqSender sender;
 
     @GetMapping("/get-all")
     public Collection<Notification> getAll() {

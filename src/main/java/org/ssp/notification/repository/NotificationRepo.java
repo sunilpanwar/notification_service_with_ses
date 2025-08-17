@@ -25,10 +25,10 @@ public interface NotificationRepo extends JpaRepository<Notification, Integer> {
 
     @Modifying
     @Transactional
-    @Query("""
-    update Notification p set p.ses_message_id = :ses_message_id, p.status = :status,
-     p.status_details = :status_details where p.id = :id""")
-    void updateMessageIdById(@Param("id") Long id, @Param("ses_message_id") String ses_message_id,
-                             @Param("status") String status, @Param("status_details") String statusDetails);
+    @Query("UPDATE Notification p SET p.sesMessageId = :sesMessageId, p.status = :status, p.statusDetails = :statusDetails WHERE p.id = :id")
+    int updateMessageIdById(@Param("id") Long id,
+                            @Param("sesMessageId") String sesMessageId,
+                            @Param("status") String status,
+                            @Param("statusDetails") String statusDetails);
 
 }
