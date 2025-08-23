@@ -8,7 +8,7 @@ import org.ssp.notification.dto.NotificationDto;
 import org.ssp.notification.dto.NotificationIdDto;
 
 @Component
-public class Sender {
+public class ActiveMqSender {
 
     @Autowired
     private QueueConfig queueConfig;

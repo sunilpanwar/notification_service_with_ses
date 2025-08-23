@@ -10,7 +10,7 @@ import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 import org.springframework.jms.annotation.EnableJms;
 import org.springframework.jms.core.JmsTemplate;
-import org.ssp.notification.service.MessageReceiver;
+import org.ssp.notification.service.SqsReceiver;
 
 @SpringBootApplication
 @EnableJms
@@ -20,7 +20,7 @@ public class NotificationSesApplication  implements CommandLineRunner {
 
 
     @Autowired
-    private MessageReceiver messageReceiver;
+    private SqsReceiver messageReceiver;
 
     public static void main(String[] args) {
         ConfigurableApplicationContext context = SpringApplication.run(NotificationSesApplication.class, args);

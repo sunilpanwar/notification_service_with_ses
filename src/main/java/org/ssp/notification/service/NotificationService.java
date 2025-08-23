@@ -9,7 +9,7 @@ import org.ssp.notification.repository.NotificationRepo;
 import java.util.List;
 
 @Service
-public class NotificationServ {
+public class NotificationService {
 
     @Autowired
     private NotificationRepo notificationRepo;

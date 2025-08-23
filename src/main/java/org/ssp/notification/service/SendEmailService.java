@@ -1,12 +1,10 @@
-package org.ssp.notification.controller;
+package org.ssp.notification.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.ssp.notification.config.AwsConfig;
 import org.ssp.notification.dto.NotificationDto;
 import org.ssp.notification.dto.NotificationIdDto;
-import org.ssp.notification.service.NotificationServ;
-import org.ssp.notification.service.Sender;
 import software.amazon.awssdk.auth.credentials.AwsBasicCredentials;
 import software.amazon.awssdk.auth.credentials.StaticCredentialsProvider;
 import software.amazon.awssdk.regions.Region;
@@ -16,13 +14,13 @@ import software.amazon.awssdk.services.sesv2.model.*;
 import static org.ssp.notification.Constant.*;
 
 @Service
-public class SendEmail {
+public class SendEmailService {
 
     @Autowired
-    private NotificationServ notificationServ;
+    private NotificationService notificationServ;
 
     @Autowired
-    private Sender sender;
+    private ActiveMqSender sender;
 
     @Autowired
     private AwsConfig awsConfig;

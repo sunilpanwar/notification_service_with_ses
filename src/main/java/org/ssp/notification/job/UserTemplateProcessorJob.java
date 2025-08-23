@@ -9,7 +9,7 @@ import org.springframework.scheduling.annotation.Scheduled;
 import org.ssp.notification.entity.Notification;
 import org.ssp.notification.entity.Template;
 import org.ssp.notification.entity.UserData;
-import org.ssp.notification.service.NotificationServ;
+import org.ssp.notification.service.NotificationService;
 import org.ssp.notification.service.TemplateService;
 import org.ssp.notification.service.UserDataService;
 
@@ -23,7 +23,7 @@ public class UserTemplateProcessorJob {
     private UserDataService userDataService;
 
     @Autowired
-    private NotificationServ notificationServ;
+    private NotificationService notificationServ;
 
     @Autowired
     private TemplateService templateService;

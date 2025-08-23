@@ -5,24 +5,23 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.jms.annotation.JmsListener;
 import org.springframework.stereotype.Component;
-import org.ssp.notification.controller.SendEmail;
 import org.ssp.notification.dto.NotificationDto;
 import org.ssp.notification.dto.NotificationIdDto;
 
 @Component
-public class Receiver {
+public class ActiveMqReceiver {
 
-    private static final Logger logger = LoggerFactory.getLogger(Receiver.class);
+    private static final Logger logger = LoggerFactory.getLogger(ActiveMqReceiver.class);
 
-    private final SendEmail sendEmail;
-    private final NotificationServ notificationServ;
+    private final SendEmailService sendEmail;
+    private final NotificationService notificationService;
     private final long mailboxQDelay;
 
-    public Receiver(SendEmail sendEmail,
-                    NotificationServ notificationServ,
-                    @Value("${app.jms.listener.delay-ms:100}") long mailboxQDelay) {
+    public ActiveMqReceiver(SendEmailService sendEmail,
+                            NotificationService notificationService,
+                            @Value("${app.jms.listener.delay-ms:100}") long mailboxQDelay) {
         this.sendEmail = sendEmail;
-        this.notificationServ = notificationServ;
+        this.notificationService = notificationService;
         this.mailboxQDelay = mailboxQDelay;
     }
 
@@ -37,6 +36,6 @@ public class Receiver {
     @JmsListener(destination = "${activemq.messageIdQ}", containerFactory = "myFactory")
     public void receiveMessageIdQ(NotificationIdDto notification) {
         logger.info("Received from messageIdQ: <{}>", notification);
-        notificationServ.updateMessageIdById(notification);
+        notificationService.updateMessageIdById(notification);
     }
 }

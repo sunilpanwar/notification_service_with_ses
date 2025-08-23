@@ -9,8 +9,8 @@ import org.springframework.scheduling.annotation.Scheduled;
 import org.ssp.notification.Constant;
 import org.ssp.notification.dto.NotificationDto;
 import org.ssp.notification.entity.Notification;
-import org.ssp.notification.service.NotificationServ;
-import org.ssp.notification.service.Sender;
+import org.ssp.notification.service.NotificationService;
+import org.ssp.notification.service.ActiveMqSender;
 
 import java.util.Date;
 import java.util.List;
@@ -20,10 +20,10 @@ import java.util.List;
 public class JobSchedular {
 
     @Autowired
-    private NotificationServ notificationServ;
+    private NotificationService notificationServ;
 
     @Autowired
-    private Sender sender;
+    private ActiveMqSender sender;
 
     int chunkSize = 100;
 
