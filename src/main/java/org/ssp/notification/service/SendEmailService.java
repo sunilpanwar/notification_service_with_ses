@@ -1,5 +1,7 @@
 package org.ssp.notification.service;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.ssp.notification.config.AwsConfig;
@@ -10,11 +12,25 @@ import software.amazon.awssdk.auth.credentials.StaticCredentialsProvider;
 import software.amazon.awssdk.regions.Region;
 import software.amazon.awssdk.services.sesv2.SesV2Client;
 import software.amazon.awssdk.services.sesv2.model.*;
+import software.amazon.awssdk.core.SdkBytes;
+
+import jakarta.mail.Message.RecipientType;
+import jakarta.mail.MessagingException;
+import jakarta.mail.Session;
+import jakarta.mail.internet.InternetAddress;
+import jakarta.mail.internet.MimeBodyPart;
+import jakarta.mail.internet.MimeMessage;
+import jakarta.mail.internet.MimeMultipart;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.util.Properties;
 
 import static org.ssp.notification.Constant.*;
 
 @Service
 public class SendEmailService {
+
+    private static final Logger log = LoggerFactory.getLogger(SendEmailService.class);
 
     @Autowired
     private NotificationService notificationServ;
@@ -24,25 +40,6 @@ public class SendEmailService {
 
     @Autowired
     private AwsConfig awsConfig;
-   /* final String usage = """
-
-                                Usage:
-                                    <sender> <recipient> <subject>\s
-
-                                Where:
-                                    sender - An email address that represents the sender.\s
-                                    recipient - An email address that represents the recipient.\s
-                                    subject - The subject line.\s
-                                """;
-
-
-    String mailSender = "sunil_panwar@outlook.com";
-    String mailReceiver = "sspneel@gmail.com";
-    String subject = "Test Notification Service";
-
-    // The HTML body of the email.
-    String bodyHTML = "<html>" + "<head></head>" + "<body>" + "<h1>Hello!</h1>"
-                + "<p> See the list of customers.</p>" + "</body>" + "</html>";*/
 
     public  void send(NotificationDto notification) {
 
@@ -55,56 +52,75 @@ public class SendEmailService {
                 .region(region)
                 .build();
 
-        Destination destination = Destination.builder()
-                .toAddresses(notification.getRecipient_email())
-                .build();
-
-        Content content = Content.builder()
-                .data(notification.getBody())
-                .build();
-
-        Content sub = Content.builder()
-                .data(notification.getSubject())
-                .build();
-
-        Body body = Body.builder()
-                .html(content)
-                .build();
-
-        Message msg = Message.builder()
-                .subject(sub)
-                .body(body)
-                .build();
-
-        EmailContent emailContent = EmailContent.builder()
-                .simple(msg)
-                .build();
-
-        SendEmailRequest emailRequest = SendEmailRequest.builder()
-                .destination(destination)
-                .content(emailContent)
-                .fromEmailAddress(notification.getSender_email())
-                .build();
-
         NotificationIdDto messageIdDto = NotificationIdDto.builder().
                 id(notification.getId()).
                 status(SENT_STS).
                 status_details(SUCCESS_STS).
                 build();
         try {
-            System.out.println("Attempting to send an email through Amazon SES "
-                    + "using the AWS SDK for Java...");
+            // To add custom headers like 'In-Reply-To', we must build a raw email message.
+            Properties props = new Properties();
+            Session session = Session.getDefaultInstance(props, null);
+            MimeMessage message = new MimeMessage(session);
+
+            // Set standard headers
+            message.setFrom(new InternetAddress(notification.getSender_email()));
+            message.setRecipients(RecipientType.TO, InternetAddress.parse(notification.getRecipient_email()));
+            message.setSubject(notification.getSubject());
+
+            // If an In-Reply-To ID is provided, add the necessary headers for email threading.
+            if (notification.getInReplyToMessageId() != null && !notification.getInReplyToMessageId().isBlank()) {
+                log.debug("Adding In-Reply-To header for notification ID {}: {}", notification.getId(), notification.getInReplyToMessageId());
+                message.addHeader("In-Reply-To", notification.getInReplyToMessageId());
+                message.addHeader("References", notification.getInReplyToMessageId());
+            }
+
+            // Create the HTML body part
+            MimeBodyPart htmlPart = new MimeBodyPart();
+            htmlPart.setContent(notification.getBody(), "text/html; charset=UTF-8");
+
+            // Create a multipart message and add the HTML part
+            MimeMultipart multipart = new MimeMultipart();
+            multipart.addBodyPart(htmlPart);
+            message.setContent(multipart);
+
+            // Write the message to a byte array
+            ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+            message.writeTo(outputStream);
+
+            // Build the RawMessage for SES
+            RawMessage rawMessage = RawMessage.builder()
+                    .data(SdkBytes.fromByteArray(outputStream.toByteArray()))
+                    .build();
+
+            EmailContent emailContent = EmailContent.builder()
+                    .raw(rawMessage)
+                    .build();
+
+            // The destination is part of the raw message headers, but SES still requires it here.
+            Destination destination = Destination.builder()
+                    .toAddresses(notification.getRecipient_email())
+                    .build();
+
+            SendEmailRequest emailRequest = SendEmailRequest.builder()
+                    .destination(destination)
+                    .content(emailContent)
+                    .fromEmailAddress(notification.getSender_email()) // The 'From' address must be verified in SES.
+                    .build();
+
+            log.info("Attempting to send an email for notification ID {} through Amazon SES...", notification.getId());
             SendEmailResponse sendEmailResponse = client.sendEmail(emailRequest);
 
-            System.out.println(emailRequest + " : email was sent " + sendEmailResponse.messageId());
-            //notificationServ.saveNotification();
-            //insert into the Queue to update the messageId in the DB table.
-
+            log.info("Email for notification ID {} was sent successfully. Message ID: {}", notification.getId(), sendEmailResponse.messageId());
             messageIdDto.setMessageId(sendEmailResponse.messageId());
-        } catch (SesV2Exception e)  {
-            System.err.println("Error During sending the message => " + e.awsErrorDetails().errorMessage());
+        } catch (IOException | MessagingException | SesV2Exception e)  {
+            String errorMessage = (e instanceof SesV2Exception sesEx)
+                    ? sesEx.awsErrorDetails().errorMessage()
+                    : e.getMessage();
+
+            log.error("Failed to send email for notification ID {}: {}", notification.getId(), errorMessage, e);
             messageIdDto.setStatus(FAILED_STS);
-            messageIdDto.setStatus_details(e.awsErrorDetails().errorMessage());
+            messageIdDto.setStatus_details(errorMessage);
         }
         finally {
             sender.sendMessageIdQ( messageIdDto);

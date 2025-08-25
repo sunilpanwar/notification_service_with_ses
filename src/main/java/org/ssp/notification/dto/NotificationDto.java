@@ -21,6 +21,7 @@ public class NotificationDto{
     private String sender_email;
     private String subject;
     private String body;
+    private String inReplyToMessageId;
 
     public NotificationDto getNotificationDto (Notification notification) {
         return new NotificationDtoBuilder().id(notification.getId()).
