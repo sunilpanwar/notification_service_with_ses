@@ -1,5 +1,6 @@
 package org.ssp.notification.dto;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.*;
 
@@ -12,6 +13,7 @@ import java.util.List;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class SqsTags {
     @JsonProperty("ses:source-tls-version")
     private List<String> sesSourceTlsVersion = new ArrayList<>();
@@ -39,4 +41,7 @@ public class SqsTags {
 
     @JsonProperty("ses:outgoing-ip")
     private List<String> sesOutgoingIp = new ArrayList<>();
+
+    @JsonProperty("ses:recipient-isp")
+    private List<String> sesRecipientIsp = new ArrayList<>();
 }
