@@ -22,6 +22,7 @@ public class NotificationDto{
     private String subject;
     private String body;
     private String inReplyToMessageId;
+    private String batch_id;
 
     public NotificationDto getNotificationDto (Notification notification) {
         return new NotificationDtoBuilder().id(notification.getId()).

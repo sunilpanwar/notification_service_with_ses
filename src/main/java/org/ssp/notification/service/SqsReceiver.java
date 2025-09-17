@@ -16,6 +16,7 @@ import java.io.IOException;
 import java.time.OffsetDateTime;
 import java.util.Date;
 import java.util.Optional;
+import java.util.ArrayList;
 
 @Service
 public class SqsReceiver {
@@ -49,6 +50,8 @@ public class SqsReceiver {
                                 .eventType(messageMpr.getEventType())
                                 .messageId(messageMpr.getMail().getMessageId())
                                 .emailId(messageMpr.getMail().getDestination().get(0))
+                                .campaignBatchId(Optional.ofNullable(messageMpr.getMail().getTags().getCampaignBatchId())
+                                        .orElseGet(ArrayList::new).stream().findFirst().orElse("NA"))
                                 .build();
                         sesNotificationEventRepo.save(sesNotificationEventType);
                     }

@@ -33,5 +33,7 @@ public class SesNotificationEventType extends AuditableEntity {
 
     private String eventType;
 
+    private String campaignBatchId;
+
 
 }

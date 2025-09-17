@@ -23,6 +23,8 @@ import jakarta.mail.internet.MimeMessage;
 import jakarta.mail.internet.MimeMultipart;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
+import java.util.Collection;
+import java.util.List;
 import java.util.Properties;
 
 import static org.ssp.notification.Constant.*;
@@ -101,11 +103,13 @@ public class SendEmailService {
             Destination destination = Destination.builder()
                     .toAddresses(notification.getRecipient_email())
                     .build();
-
+            List<MessageTag> metaTags =
+                    List.of(MessageTag.builder().name("campaignBatchId").value(notification.getBatch_id()).build());
             SendEmailRequest emailRequest = SendEmailRequest.builder()
                     .destination(destination)
                     .content(emailContent)
                     .fromEmailAddress(notification.getSender_email()) // The 'From' address must be verified in SES.
+                    .emailTags(metaTags)
                     .build();
 
             log.info("Attempting to send an email for notification ID {} through Amazon SES...", notification.getId());

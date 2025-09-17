@@ -34,4 +34,7 @@ public class SqsMailMapper {
     @JsonProperty("destination")
     private List<String> destination;
 
+    @JsonProperty("tags")
+    private SqsTags tags;
+
 }

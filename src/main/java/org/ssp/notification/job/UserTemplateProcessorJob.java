@@ -1,6 +1,8 @@
 package org.ssp.notification.job;
 
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -19,6 +21,8 @@ import java.util.List;
 @EnableScheduling
 public class UserTemplateProcessorJob {
 
+    private static final Logger log = LoggerFactory.getLogger(UserTemplateProcessorJob.class);
+
     @Autowired
     private UserDataService userDataService;
 
@@ -28,15 +32,22 @@ public class UserTemplateProcessorJob {
     @Autowired
     private TemplateService templateService;
 
+
     int chunkSize = 50;
+
 
     @Autowired
     private JdbcTemplate jdbcTemplate;
 
-    @Scheduled(fixedDelay = 30000, initialDelay = 1000)
+    @Scheduled(fixedDelayString = "${job.user-processor.fixed-delay}", initialDelayString = "${job.user-processor.initial-delay}")
     public void fetchData() {
+        log.info("Starting UserTemplateProcessorJob to process user data and create notifications.");
 
         Template template = templateService.findByStatus(true);
+        if (template == null) {
+            log.warn("No active template found. Skipping this job run.");
+            return;
+        }
 
         /*userDataService.getUserDataByReportedComplainFalse() this will return list of user,
          templateService.findByStatus(true)) THIS WILL RETURN ONE TEMPLATE WHICH IS ACTIVE
@@ -45,13 +56,14 @@ public class UserTemplateProcessorJob {
         */
         // Example of processing user data with template
 
-//getUserDataByReportedComplainFalse use chunkz or size while fetching data.
 
         List<UserData> userDataList = userDataService.getUserDataByReportedComplainFalse();
         if (userDataList.isEmpty()) {
-            System.out.println("No user data found to process.");
+            log.info("No user data found to process.");
             return;
         }
+        log.info("Found {} users to notify. Processing a chunk of {}.", userDataList.size(), chunkSize);
+
         List<Integer> userIds = new java.util.ArrayList<>();
         List<Notification> notifications = userDataList.stream().limit(chunkSize).
                 map(userData -> {
@@ -65,9 +77,11 @@ public class UserTemplateProcessorJob {
                             .subject(template.getSubject()).build();
 
                 }).toList();
-//update userData with userIds
+
+        log.info("Generated {} notifications. Saving them to the database.", notifications.size());
+        //update userData with userIds
         userDataService.updateProcessStatusToCompleted(userIds);
         notificationServ.saveAllNotifications(notifications);
-
+        log.info("Successfully saved notifications and updated user statuses.");
     }
 }

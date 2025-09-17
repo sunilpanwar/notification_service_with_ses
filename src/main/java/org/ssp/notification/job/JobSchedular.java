@@ -39,7 +39,7 @@ public class JobSchedular {
     @Autowired
     private JdbcTemplate jdbcTemplate;
 
-    @Scheduled(fixedDelay = 120000, initialDelay = 60000)
+    @Scheduled(fixedDelayString = "${job.db-polling.fixed-delay}", initialDelayString = "${job.db-polling.initial-delay}")
     public void fetchData() {
         log.info("DB Polling Job Started.");
         int processedCount;
@@ -95,6 +95,7 @@ public class JobSchedular {
                     .subject(notification.getSubject())
                     .body(notification.getBody())
                     .inReplyToMessageId(initialMessageId) // Pass the ID to the DTO
+                    .batch_id(notification.getEmail_batch_id())
                     .build();
 
             notification.setStatus(Constant.PENDING_STS);
